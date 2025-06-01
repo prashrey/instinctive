@@ -111,18 +111,18 @@ export const StoreProvider = ({ children }) => {
     }
   }, []);
   const actions = useMemo(() => {
-    return {      searchProducts: (query, filters = {}, sort = "relevant") => {
+    return {
+      searchProducts: (query, filters = {}, sort = "relevant") => {
         const params = { ...state.selectedFilters };
 
         if (query !== undefined && query !== null && query !== "") {
           params.search = query;
         }
 
-        // Keep current sort if not explicitly changed
         if (sort !== state.sortBy) {
           dispatch({ type: ACTIONS.SET_SORT, payload: sort });
         }
-        
+
         if (state.sortBy !== "relevant") {
           params.sort = state.sortBy;
         }
@@ -134,7 +134,8 @@ export const StoreProvider = ({ children }) => {
 
       loadFilters: () => {
         safeDispatch(() => fetchFromAPI("/api/products/filters"), ACTIONS.SET_FILTERS, "Failed to load filters");
-      },      updateFilters: filters => {
+      },
+      updateFilters: filters => {
         const params = { ...filters };
         if (state.sortBy !== "relevant") {
           params.sort = state.sortBy;
@@ -153,19 +154,17 @@ export const StoreProvider = ({ children }) => {
           .finally(() => {
             dispatch({ type: ACTIONS.SET_LOADING, payload: false });
           });
-      },      updateSort: sortBy => {
-        // First update the sort state
+      },
+      updateSort: sortBy => {
         dispatch({ type: ACTIONS.SET_SORT, payload: sortBy });
 
         const params = { ...state.selectedFilters };
-        // Only include sort if it's not the default
         if (sortBy !== "relevant") {
           params.sort = sortBy;
         }
-        
+
         dispatch({ type: ACTIONS.SET_LOADING, payload: true });
 
-        // Use the safeDispatch to handle the API call
         return safeDispatch(
           () => fetchFromAPI("/api/products", params),
           ACTIONS.SET_PRODUCTS,

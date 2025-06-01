@@ -4,7 +4,7 @@ import Filters from "@/components/Filters/Filters";
 import SortingOptions from "@/components/Filters/SortingOptions";
 import ProductList from "@/components/Product/ProductList";
 import StoreInitializer from "@/scripts/StoreInitializer";
-import styles from "./page.module.css";
+import styles from "../page.module.css";
 
 export default function Home() {
   return (

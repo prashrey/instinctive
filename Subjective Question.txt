@@ -1,0 +1,42 @@
+Question 
+--------
+## Scenario
+
+You are building the search and discovery engine for a B2B marketplace. One of the features of the marketplace is powerful and intuitive search and filtering:
+
+- **Natural-language search:** A buyer might type *“organic NPK fertilisers in Thrissur under ₹500 / kg”*. The system should infer **intent** (product type = fertiliser), **filters** (organic, NPK, location = Thrissur, price ≤ ₹500) and return ranked results. See implementation on IndiaMART.
+- **Dynamic, category-aware facets:** After the first results load, the UI must display context-specific filters. E.g. for TVs it shows *Screen Size, Technology, Resolution*; for Shoes it shows *Size, Colour, Brand*. Facet definitions can evolve over time as the catalogue team adds new categories or attributes. Similar to implementation on sites like Amazon.
+
+## Questions
+
+Aim for concise answers not more than 300 words. Please note that higher word counts won’t be treated as better answers. We are looking for clarity of thought and good communication.
+
+1. **Intent Extraction Strategy**
+    1. Describe a pragmatic and scalable pipeline (libraries, ML models, rule layers) that converts the query *“running shoes size 9 red under ₹2 000 in Mumbai”* into structured filters.
+    2. What fallback do you implement when the system cannot confidently classify part of the query?
+2. **Flexible Schema for Category-Specific Attributes**
+    1. Relational vs. document vs. hybrid: which data model would you adopt so merchandisers can add new attributes (e.g., *“Energy Rating”* for ACs) without large-scale migrations?
+    2. Explain how your choice supports fast multi-attribute filtering and attribute existence queries.
+3. **(Optional) Dynamic Facet API Design**
+    1. Sketch an API contract that the frontend calls after any search to retrieve **facet configs + counts**.
+
+========================================================================================================================================
+
+Answer: 
+
+1.1 Keyword/token and intent extraction  
+  - Natural language processing APIs (GPT-4 or BERT) used to extrack tokens like Product, Product specific parameters, Location, Quantity, price/range - If user has provided any range or specific amount that they are willing to pay
+  - Use knowledge graphs to suggest product parameters that might improve specificity   
+    - 
+
+1.2 Query processing
+  - if products with applied parameters exist, show results
+  - If the product is not indexed in the DB, use a query to extract related products based either on location clustering or related products(using k-nearest) that are usually searched along with this item
+  - If product is indexed but all paramerters don't apply, suggest user filters that user can opt to compromise/modify on for better suited results
+  - Suggest alternative products that are usually bought along with this search
+  
+2 Document model preffered
+  - Fast, flexible and can efficiently compute facets
+
+3. GraphQL endpoint
+  - Fast, single request to fetch all parameters and has optimised payload
