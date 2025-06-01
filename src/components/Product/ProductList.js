@@ -26,8 +26,8 @@ const ProductList = () => {
 
   return (
     <div className={styles.grid}>
-      {products.map(product => (
-        <div key={product.id} className={styles.product}>
+      {products.map((product, key) => (
+        <div key={`product_id_${key}`} className={styles.product}>
           <div className={styles.imageContainer}>
             <Image
               src={product.imgUrl || "/product-placeholder.svg"}
@@ -42,18 +42,10 @@ const ProductList = () => {
           </div>
           <div className={styles.productInfo}>
             <h3>{product.name || "Untitled Product"}</h3>
-            {product.price && (
-              <p className={styles.price}>Price: ${product.price}</p>
-            )}
-            {product.brand && (
-              <p className={styles.brand}>{product.brand}</p>
-            )}
-            {product.category && (
-              <p className={styles.category}>{product.category}</p>
-            )}
-            {product.location && (
-              <p className={styles.location}>{product.location}</p>
-            )}
+            {product.price && <p className={styles.price}>Price: ${product.price}</p>}
+            {product.brand && <p className={styles.brand}>{product.brand}</p>}
+            {product.category && <p className={styles.category}>{product.category}</p>}
+            {product.location && <p className={styles.location}>{product.location}</p>}
           </div>
         </div>
       ))}
