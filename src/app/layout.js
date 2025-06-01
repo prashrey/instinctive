@@ -1,6 +1,6 @@
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
-import Search from "@/components/Search";
+import Search from "@/components/Search/Search";
 import { StoreProvider } from "@/context/StoreContext";
 
 const geistSans = Geist({
@@ -21,10 +21,15 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
+      <head>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link href="https://fonts.googleapis.com/css2?family=Kapakana:wght@300..400&display=swap" rel="stylesheet" />
+      </head>
       <body className={`${geistSans.variable} ${geistMono.variable}`}>
         <StoreProvider>
           <Search />
-          <main>{children}</main>
+          {children}
         </StoreProvider>
       </body>
     </html>

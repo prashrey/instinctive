@@ -1,30 +1,28 @@
 "use client";
 
-import Filters from "@/components/Filters";
-import SortingOptions from "@/components/SortingOptions";
-import ProductList from "@/components/ProductList";
-import StoreInitializer from "@/components/StoreInitializer";
+import Filters from "@/components/Filters/Filters";
+import SortingOptions from "@/components/Filters/SortingOptions";
+import ProductList from "@/components/Product/ProductList";
+import StoreInitializer from "@/scripts/StoreInitializer";
 import styles from "./page.module.css";
 
 export default function Home() {
   return (
     <>
       <StoreInitializer />
-      <div className={styles.page}>
-        <main className={styles.main}>
-          <div className={styles.searchControls}>
-            <SortingOptions />
-          </div>
-          <div className={styles.content}>
+      <main className={styles.page}>
+        <div className={styles.main}>
+          <section className={styles.content}>
             <aside className={styles.sidebar}>
+              <SortingOptions />
               <Filters />
             </aside>
             <section className={styles.products}>
               <ProductList />
             </section>
-          </div>
-        </main>
-      </div>
+          </section>
+        </div>
+      </main>
     </>
   );
 }

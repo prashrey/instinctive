@@ -16,13 +16,14 @@
 
 .sortSelect {
   padding: 0.5rem;
+  color: #000;
   border: 1px solid #dee2e6;
   border-radius: 4px;
   background-color: white;
   font-size: 0.9rem;
   cursor: pointer;
   outline: none;
-  min-width: 200px;
+  width: 100%;
 }
 
 .sortSelect:focus {
@@ -35,7 +36,7 @@
     flex-direction: column;
     align-items: stretch;
   }
-  
+
   .sortSelect {
     width: 100%;
   }

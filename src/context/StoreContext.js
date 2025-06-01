@@ -111,16 +111,20 @@ export const StoreProvider = ({ children }) => {
     }
   }, []);
   const actions = useMemo(() => {
-    return {
-      searchProducts: (query, filters = {}, sort = "relevant") => {
-        const params = {};
+    return {      searchProducts: (query, filters = {}, sort = "relevant") => {
+        const params = { ...state.selectedFilters };
 
         if (query !== undefined && query !== null && query !== "") {
           params.search = query;
         }
 
-        if (sort && sort !== "relevant") {
-          params.sort = sort;
+        // Keep current sort if not explicitly changed
+        if (sort !== state.sortBy) {
+          dispatch({ type: ACTIONS.SET_SORT, payload: sort });
+        }
+        
+        if (state.sortBy !== "relevant") {
+          params.sort = state.sortBy;
         }
 
         Object.assign(params, filters);
@@ -130,12 +134,16 @@ export const StoreProvider = ({ children }) => {
 
       loadFilters: () => {
         safeDispatch(() => fetchFromAPI("/api/products/filters"), ACTIONS.SET_FILTERS, "Failed to load filters");
-      },
-      updateFilters: filters => {
+      },      updateFilters: filters => {
+        const params = { ...filters };
+        if (state.sortBy !== "relevant") {
+          params.sort = state.sortBy;
+        }
+
         dispatch({ type: ACTIONS.SET_LOADING, payload: true });
         dispatch({ type: ACTIONS.SET_SELECTED_FILTERS, payload: filters });
 
-        return fetchFromAPI("/api/products", { ...filters, sort: state.sortBy })
+        return fetchFromAPI("/api/products", params)
           .then(data => {
             dispatch({ type: ACTIONS.SET_PRODUCTS, payload: data });
           })
@@ -145,22 +153,24 @@ export const StoreProvider = ({ children }) => {
           .finally(() => {
             dispatch({ type: ACTIONS.SET_LOADING, payload: false });
           });
-      },
-
-      updateSort: sortBy => {
-        dispatch({ type: ACTIONS.SET_LOADING, payload: true });
+      },      updateSort: sortBy => {
+        // First update the sort state
         dispatch({ type: ACTIONS.SET_SORT, payload: sortBy });
 
-        return fetchFromAPI("/api/products", { ...state.selectedFilters, sort: sortBy })
-          .then(data => {
-            dispatch({ type: ACTIONS.SET_PRODUCTS, payload: data });
-          })
-          .catch(error => {
-            dispatch({ type: ACTIONS.SET_ERROR, payload: "Failed to fetch products" });
-          })
-          .finally(() => {
-            dispatch({ type: ACTIONS.SET_LOADING, payload: false });
-          });
+        const params = { ...state.selectedFilters };
+        // Only include sort if it's not the default
+        if (sortBy !== "relevant") {
+          params.sort = sortBy;
+        }
+        
+        dispatch({ type: ACTIONS.SET_LOADING, payload: true });
+
+        // Use the safeDispatch to handle the API call
+        return safeDispatch(
+          () => fetchFromAPI("/api/products", params),
+          ACTIONS.SET_PRODUCTS,
+          "Failed to fetch products"
+        );
       },
 
       clearError: () => dispatch({ type: ACTIONS.SET_ERROR, payload: null }),

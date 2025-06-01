@@ -22,6 +22,7 @@ const Search = () => {
   };
   return (
     <div className={styles.searchContainer}>
+      <div className={styles.logo}>Enigma</div>
       <form onSubmit={handleSearch} className={styles.searchForm}>
         <input
           type="search"
