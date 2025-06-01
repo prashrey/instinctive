@@ -1,0 +1,1202 @@
+[
+  {
+    "id": "prod001",
+    "name": "Wireless Headphones",
+    "imgUrl": "",
+    "facets": {
+      "category": "Electronics",
+      "brand": "SoundWave",
+      "priceRange": "100-200"
+    },
+    "location": "Mumbai",
+    "cluster": "Audio"
+  },
+  {
+    "id": "prod002",
+    "name": "Running Shoes",
+    "imgUrl": "",
+    "facets": {
+      "category": "Sports",
+      "brand": "RunFast",
+      "priceRange": "50-100"
+    },
+    "location": "Delhi",
+    "cluster": "Footwear"
+  },
+  {
+    "id": "prod003",
+    "name": "Bluetooth Speaker",
+    "facets": {
+      "category": "Electronics",
+      "brand": "BoomSound",
+      "priceRange": "80-150"
+    },
+    "location": "Bangalore",
+    "cluster": "Audio",
+    "imgUrl": ""
+  },
+  {
+    "id": "prod004",
+    "name": "Smart Watch",
+    "facets": {
+      "category": "Electronics",
+      "brand": "TechTrak",
+      "priceRange": "200-400"
+    },
+    "location": "Hyderabad",
+    "cluster": "Wearables",
+    "imgUrl": ""
+  },
+  {
+    "id": "prod005",
+    "name": "Laptop Backpack",
+    "facets": {
+      "category": "Accessories",
+      "brand": "BagIt",
+      "priceRange": "30-70"
+    },
+    "location": "Chennai",
+    "cluster": "Bags",
+    "imgUrl": ""
+  },
+  {
+    "id": "prod006",
+    "name": "Yoga Mat",
+    "facets": {
+      "category": "Sports",
+      "brand": "FlexiMat",
+      "priceRange": "20-50"
+    },
+    "location": "Pune",
+    "cluster": "Fitness",
+    "imgUrl": ""
+  },
+  {
+    "id": "prod007",
+    "name": "Coffee Mug",
+    "facets": {
+      "category": "Home",
+      "brand": "Muggy",
+      "priceRange": "10-20"
+    },
+    "location": "Kolkata",
+    "cluster": "Kitchen",
+    "imgUrl": ""
+  },
+  {
+    "id": "prod008",
+    "name": "Desk Lamp",
+    "facets": {
+      "category": "Home",
+      "brand": "LightUp",
+      "priceRange": "40-80"
+    },
+    "location": "Ahmedabad",
+    "cluster": "Lighting",
+    "imgUrl": ""
+  },
+  {
+    "id": "prod009",
+    "name": "Water Bottle",
+    "facets": {
+      "category": "Sports",
+      "brand": "AquaFlask",
+      "priceRange": "15-30"
+    },
+    "location": "Mumbai",
+    "cluster": "Fitness",
+    "imgUrl": ""
+  },
+  {
+    "id": "prod010",
+    "name": "Wireless Mouse",
+    "facets": {
+      "category": "Electronics",
+      "brand": "ClickIt",
+      "priceRange": "20-50"
+    },
+    "location": "Delhi",
+    "cluster": "Computer Accessories",
+    "imgUrl": ""
+  },
+  {
+    "id": "prod011",
+    "name": "T-Shirt",
+    "facets": {
+      "category": "Fashion",
+      "brand": "TeeStyle",
+      "priceRange": "10-25"
+    },
+    "location": "Bangalore",
+    "cluster": "Apparel",
+    "imgUrl": ""
+  },
+  {
+    "id": "prod012",
+    "name": "Sunglasses",
+    "facets": {
+      "category": "Fashion",
+      "brand": "Shadez",
+      "priceRange": "50-120"
+    },
+    "location": "Hyderabad",
+    "cluster": "Accessories",
+    "imgUrl": ""
+  },
+  {
+    "id": "prod013",
+    "name": "Power Bank",
+    "facets": {
+      "category": "Electronics",
+      "brand": "ChargeUp",
+      "priceRange": "30-70"
+    },
+    "location": "Chennai",
+    "cluster": "Mobile Accessories",
+    "imgUrl": ""
+  },
+  {
+    "id": "prod014",
+    "name": "Jeans",
+    "facets": {
+      "category": "Fashion",
+      "brand": "DenimCo",
+      "priceRange": "40-100"
+    },
+    "location": "Pune",
+    "cluster": "Apparel",
+    "imgUrl": ""
+  },
+  {
+    "id": "prod015",
+    "name": "Rice Cooker",
+    "facets": {
+      "category": "Home",
+      "brand": "CookRight",
+      "priceRange": "80-180"
+    },
+    "location": "Kolkata",
+    "cluster": "Kitchen",
+    "imgUrl": ""
+  },
+  {
+    "id": "prod016",
+    "name": "Blender",
+    "facets": {
+      "category": "Home",
+      "brand": "BlendIt",
+      "priceRange": "60-140"
+    },
+    "location": "Ahmedabad",
+    "cluster": "Kitchen",
+    "imgUrl": ""
+  },
+  {
+    "id": "prod017",
+    "name": "Hair Dryer",
+    "facets": {
+      "category": "Beauty",
+      "brand": "DryFast",
+      "priceRange": "40-90"
+    },
+    "location": "Mumbai",
+    "cluster": "Personal Care",
+    "imgUrl": ""
+  },
+  {
+    "id": "prod018",
+    "name": "Backpack",
+    "facets": {
+      "category": "Accessories",
+      "brand": "CarryOn",
+      "priceRange": "35-80"
+    },
+    "location": "Delhi",
+    "cluster": "Bags",
+    "imgUrl": ""
+  },
+  {
+    "id": "prod019",
+    "name": "Running Shorts",
+    "facets": {
+      "category": "Sports",
+      "brand": "RunFast",
+      "priceRange": "25-60"
+    },
+    "location": "Bangalore",
+    "cluster": "Apparel",
+    "imgUrl": ""
+  },
+  {
+    "id": "prod020",
+    "name": "Earphones",
+    "facets": {
+      "category": "Electronics",
+      "brand": "SoundWave",
+      "priceRange": "15-40"
+    },
+    "location": "Hyderabad",
+    "cluster": "Audio",
+    "imgUrl": ""
+  },
+  {
+    "id": "prod021",
+    "name": "Sneakers",
+    "facets": {
+      "category": "Sports",
+      "brand": "StepUp",
+      "priceRange": "60-120"
+    },
+    "location": "Chennai",
+    "cluster": "Footwear",
+    "imgUrl": ""
+  },
+  {
+    "id": "prod022",
+    "name": "Wall Clock",
+    "facets": {
+      "category": "Home",
+      "brand": "TimeTeller",
+      "priceRange": "25-60"
+    },
+    "location": "Pune",
+    "cluster": "Decor",
+    "imgUrl": ""
+  },
+  {
+    "id": "prod023",
+    "name": "Pillow",
+    "facets": {
+      "category": "Home",
+      "brand": "SleepWell",
+      "priceRange": "20-50"
+    },
+    "location": "Kolkata",
+    "cluster": "Bedding",
+    "imgUrl": ""
+  },
+  {
+    "id": "prod024",
+    "name": "Wallet",
+    "facets": {
+      "category": "Accessories",
+      "brand": "LeatherCraft",
+      "priceRange": "30-70"
+    },
+    "location": "Ahmedabad",
+    "cluster": "Accessories",
+    "imgUrl": ""
+  },
+  {
+    "id": "prod025",
+    "name": "Shirt",
+    "facets": {
+      "category": "Fashion",
+      "brand": "ShirtStyle",
+      "priceRange": "15-35"
+    },
+    "location": "Mumbai",
+    "cluster": "Apparel",
+    "imgUrl": ""
+  },
+  {
+    "id": "prod026",
+    "name": "Tablet",
+    "facets": {
+      "category": "Electronics",
+      "brand": "TabTech",
+      "priceRange": "300-600"
+    },
+    "location": "Delhi",
+    "cluster": "Computing",
+    "imgUrl": ""
+  },
+  {
+    "id": "prod027",
+    "name": "Travel Mug",
+    "facets": {
+      "category": "Home",
+      "brand": "Muggy",
+      "priceRange": "15-30"
+    },
+    "location": "Bangalore",
+    "cluster": "Kitchen",
+    "imgUrl": ""
+  },
+  {
+    "id": "prod028",
+    "name": "Handbag",
+    "facets": {
+      "category": "Accessories",
+      "brand": "BagIt",
+      "priceRange": "50-120"
+    },
+    "location": "Hyderabad",
+    "cluster": "Bags",
+    "imgUrl": ""
+  },
+  {
+    "id": "prod029",
+    "name": "Watch",
+    "facets": {
+      "category": "Fashion",
+      "brand": "TimeMaster",
+      "priceRange": "100-250"
+    },
+    "location": "Chennai",
+    "cluster": "Accessories",
+    "imgUrl": ""
+  },
+  {
+    "id": "prod030",
+    "name": "Gym Gloves",
+    "facets": {
+      "category": "Sports",
+      "brand": "FitGear",
+      "priceRange": "20-50"
+    },
+    "location": "Pune",
+    "cluster": "Fitness",
+    "imgUrl": ""
+  },
+  {
+    "id": "prod031",
+    "name": "Bluetooth Earbuds",
+    "facets": {
+      "category": "Electronics",
+      "brand": "SoundWave",
+      "priceRange": "50-120"
+    },
+    "location": "Kolkata",
+    "cluster": "Audio",
+    "imgUrl": ""
+  },
+  {
+    "id": "prod032",
+    "name": "Socks",
+    "facets": {
+      "category": "Fashion",
+      "brand": "SockIt",
+      "priceRange": "5-15"
+    },
+    "location": "Ahmedabad",
+    "cluster": "Apparel",
+    "imgUrl": ""
+  },
+  {
+    "id": "prod033",
+    "name": "Rice Bowl",
+    "facets": {
+      "category": "Home",
+      "brand": "CookRight",
+      "priceRange": "10-25"
+    },
+    "location": "Mumbai",
+    "cluster": "Kitchen",
+    "imgUrl": ""
+  },
+  {
+    "id": "prod034",
+    "name": "Belt",
+    "facets": {
+      "category": "Accessories",
+      "brand": "LeatherCraft",
+      "priceRange": "15-40"
+    },
+    "location": "Delhi",
+    "cluster": "Accessories",
+    "imgUrl": ""
+  },
+  {
+    "id": "prod035",
+    "name": "Laptop Sleeve",
+    "facets": {
+      "category": "Accessories",
+      "brand": "BagIt",
+      "priceRange": "20-50"
+    },
+    "location": "Bangalore",
+    "cluster": "Bags",
+    "imgUrl": ""
+  },
+  {
+    "id": "prod036",
+    "name": "Hand Mixer",
+    "facets": {
+      "category": "Home",
+      "brand": "BlendIt",
+      "priceRange": "50-110"
+    },
+    "location": "Hyderabad",
+    "cluster": "Kitchen",
+    "imgUrl": ""
+  },
+  {
+    "id": "prod037",
+    "name": "Cap",
+    "facets": {
+      "category": "Fashion",
+      "brand": "CapStyle",
+      "priceRange": "10-25"
+    },
+    "location": "Chennai",
+    "cluster": "Apparel",
+    "imgUrl": ""
+  },
+  {
+    "id": "prod038",
+    "name": "Toaster",
+    "facets": {
+      "category": "Home",
+      "brand": "ToastMaster",
+      "priceRange": "40-90"
+    },
+    "location": "Pune",
+    "cluster": "Kitchen",
+    "imgUrl": ""
+  },
+  {
+    "id": "prod039",
+    "name": "Phone Case",
+    "facets": {
+      "category": "Electronics",
+      "brand": "CaseIt",
+      "priceRange": "10-30"
+    },
+    "location": "Kolkata",
+    "cluster": "Mobile Accessories",
+    "imgUrl": ""
+  },
+  {
+    "id": "prod040",
+    "name": "Sandals",
+    "facets": {
+      "category": "Sports",
+      "brand": "StepUp",
+      "priceRange": "30-80"
+    },
+    "location": "Ahmedabad",
+    "cluster": "Footwear",
+    "imgUrl": ""
+  },
+  {
+    "id": "prod041",
+    "name": "Blanket",
+    "facets": {
+      "category": "Home",
+      "brand": "SleepWell",
+      "priceRange": "50-100"
+    },
+    "location": "Mumbai",
+    "cluster": "Bedding",
+    "imgUrl": ""
+  },
+  {
+    "id": "prod042",
+    "name": "Notebook",
+    "facets": {
+      "category": "Stationery",
+      "brand": "NoteIt",
+      "priceRange": "5-15"
+    },
+    "location": "Delhi",
+    "cluster": "Office Supplies",
+    "imgUrl": ""
+  },
+  {
+    "id": "prod043",
+    "name": "Water Filter",
+    "facets": {
+      "category": "Home",
+      "brand": "PureFlow",
+      "priceRange": "60-150"
+    },
+    "location": "Bangalore",
+    "cluster": "Kitchen",
+    "imgUrl": ""
+  },
+  {
+    "id": "prod044",
+    "name": "Pen",
+    "facets": {
+      "category": "Stationery",
+      "brand": "WriteRight",
+      "priceRange": "1-10"
+    },
+    "location": "Hyderabad",
+    "cluster": "Office Supplies",
+    "imgUrl": ""
+  },
+  {
+    "id": "prod045",
+    "name": "Umbrella",
+    "facets": {
+      "category": "Accessories",
+      "brand": "RainGuard",
+      "priceRange": "20-50"
+    },
+    "location": "Chennai",
+    "cluster": "Accessories",
+    "imgUrl": ""
+  },
+  {
+    "id": "prod046",
+    "name": "Towel",
+    "facets": {
+      "category": "Home",
+      "brand": "SoftTouch",
+      "priceRange": "15-40"
+    },
+    "location": "Pune",
+    "cluster": "Bath",
+    "imgUrl": ""
+  },
+  {
+    "id": "prod047",
+    "name": "Sweater",
+    "facets": {
+      "category": "Fashion",
+      "brand": "WarmStyle",
+      "priceRange": "40-90"
+    },
+    "location": "Kolkata",
+    "cluster": "Apparel",
+    "imgUrl": ""
+  },
+  {
+    "id": "prod048",
+    "name": "Desk Organizer",
+    "facets": {
+      "category": "Stationery",
+      "brand": "NoteIt",
+      "priceRange": "15-40"
+    },
+    "location": "Ahmedabad",
+    "cluster": "Office Supplies",
+    "imgUrl": ""
+  },
+  {
+    "id": "prod049",
+    "name": "Cutting Board",
+    "facets": {
+      "category": "Home",
+      "brand": "CookRight",
+      "priceRange": "10-30"
+    },
+    "location": "Mumbai",
+    "cluster": "Kitchen",
+    "imgUrl": ""
+  },
+  {
+    "id": "prod050",
+    "name": "Scarf",
+    "facets": {
+      "category": "Fashion",
+      "brand": "WrapStyle",
+      "priceRange": "10-30"
+    },
+    "location": "Delhi",
+    "cluster": "Apparel",
+    "imgUrl": ""
+  },
+  {
+    "id": "prod051",
+    "name": "Graphic T-Shirt",
+    "facets": {
+      "category": "Apparel",
+      "brand": "Roadster",
+      "priceRange": "20-40"
+    },
+    "location": "Bengaluru",
+    "cluster": "Topwear",
+    "imgUrl": ""
+  },
+  {
+    "id": "prod052",
+    "name": "Smart LED TV",
+    "facets": {
+      "category": "Electronics",
+      "brand": "Samsung",
+      "priceRange": "400-800"
+    },
+    "location": "Mumbai",
+    "cluster": "Televisions",
+    "imgUrl": ""
+  },
+  {
+    "id": "prod053",
+    "name": "Running Shorts",
+    "facets": {
+      "category": "Sports",
+      "brand": "Adidas",
+      "priceRange": "25-50"
+    },
+    "location": "Delhi",
+    "cluster": "Activewear",
+    "imgUrl": ""
+  },
+  {
+    "id": "prod054",
+    "name": "Backpack Cooler",
+    "facets": {
+      "category": "Outdoor & Travel",
+      "brand": "Coleman",
+      "priceRange": "50-100"
+    },
+    "location": "Hyderabad",
+    "cluster": "Coolers",
+    "imgUrl": ""
+  },
+  {
+    "id": "prod055",
+    "name": "Robot Vacuum",
+    "facets": {
+      "category": "Home Appliances",
+      "brand": "iRobot",
+      "priceRange": "200-500"
+    },
+    "location": "Chennai",
+    "cluster": "Cleaning Appliances",
+    "imgUrl": ""
+  },
+  {
+    "id": "prod056",
+    "name": "Dumbbell Set",
+    "facets": {
+      "category": "Sports",
+      "brand": "Kore",
+      "priceRange": "80-200"
+    },
+    "location": "Pune",
+    "cluster": "Fitness Equipment",
+    "imgUrl": ""
+  },
+  {
+    "id": "prod057",
+    "name": "Noise Cancelling Headphones",
+    "facets": {
+      "category": "Electronics",
+      "brand": "Bose",
+      "priceRange": "250-400"
+    },
+    "location": "Kolkata",
+    "cluster": "Audio Devices",
+    "imgUrl": ""
+  },
+  {
+    "id": "prod058",
+    "name": "Travel Mug",
+    "facets": {
+      "category": "Home & Kitchen",
+      "brand": "Thermos",
+      "priceRange": "15-30"
+    },
+    "location": "Ahmedabad",
+    "cluster": "Drinkware",
+    "imgUrl": ""
+  },
+  {
+    "id": "prod059",
+    "name": "Digital Camera",
+    "facets": {
+      "category": "Electronics",
+      "brand": "Canon",
+      "priceRange": "300-700"
+    },
+    "location": "Lucknow",
+    "cluster": "Cameras",
+    "imgUrl": ""
+  },
+  {
+    "id": "prod060",
+    "name": "Men's Watch",
+    "facets": {
+      "category": "Accessories",
+      "brand": "Fastrack",
+      "priceRange": "50-150"
+    },
+    "location": "Jaipur",
+    "cluster": "Watches",
+    "imgUrl": ""
+  },
+  {
+    "id": "prod061",
+    "name": "Bluetooth Speaker",
+    "facets": {
+      "category": "Electronics",
+      "brand": "JBL",
+      "priceRange": "70-150"
+    },
+    "location": "Surat",
+    "cluster": "Audio Devices",
+    "imgUrl": ""
+  },
+  {
+    "id": "prod062",
+    "name": "Camping Tent",
+    "facets": {
+      "category": "Outdoor & Travel",
+      "brand": "Quechua",
+      "priceRange": "100-250"
+    },
+    "location": "Bhopal",
+    "cluster": "Camping Gear",
+    "imgUrl": ""
+  },
+  {
+    "id": "prod063",
+    "name": "Air Purifier",
+    "facets": {
+      "category": "Home Appliances",
+      "brand": "Dyson",
+      "priceRange": "300-600"
+    },
+    "location": "Indore",
+    "cluster": "Air Treatment",
+    "imgUrl": ""
+  },
+  {
+    "id": "prod064",
+    "name": "Gaming Laptop",
+    "facets": {
+      "category": "Electronics",
+      "brand": "ASUS",
+      "priceRange": "800-1500"
+    },
+    "location": "Visakhapatnam",
+    "cluster": "Laptops",
+    "imgUrl": ""
+  },
+  {
+    "id": "prod065",
+    "name": "Cookbook",
+    "facets": {
+      "category": "Books",
+      "brand": "Random House",
+      "priceRange": "20-40"
+    },
+    "location": "Nagpur",
+    "cluster": "Non-Fiction",
+    "imgUrl": ""
+  },
+  {
+    "id": "prod066",
+    "name": "Smart Doorbell",
+    "facets": {
+      "category": "Smart Home",
+      "brand": "Ring",
+      "priceRange": "100-200"
+    },
+    "location": "Patna",
+    "cluster": "Security Devices",
+    "imgUrl": ""
+  },
+  {
+    "id": "prod067",
+    "name": "Electric Toothbrush",
+    "facets": {
+      "category": "Personal Care",
+      "brand": "Oral-B",
+      "priceRange": "40-90"
+    },
+    "location": "Ghaziabad",
+    "cluster": "Oral Care",
+    "imgUrl": ""
+  },
+  {
+    "id": "prod068",
+    "name": "Yoga Blocks",
+    "facets": {
+      "category": "Sports",
+      "brand": "Manduka",
+      "priceRange": "15-30"
+    },
+    "location": "Coimbatore",
+    "cluster": "Fitness Accessories",
+    "imgUrl": ""
+  },
+  {
+    "id": "prod069",
+    "name": "Wireless Router",
+    "facets": {
+      "category": "Electronics",
+      "brand": "TP-Link",
+      "priceRange": "50-120"
+    },
+    "location": "Madurai",
+    "cluster": "Networking Devices",
+    "imgUrl": ""
+  },
+  {
+    "id": "prod070",
+    "name": "Gardening Gloves",
+    "facets": {
+      "category": "Home Improvement",
+      "brand": "Fiskars",
+      "priceRange": "10-25"
+    },
+    "location": "Ranchi",
+    "cluster": "Gardening Tools",
+    "imgUrl": ""
+  },
+  {
+    "id": "prod071",
+    "name": "Water Filter Pitcher",
+    "facets": {
+      "category": "Home & Kitchen",
+      "brand": "Brita",
+      "priceRange": "20-40"
+    },
+    "location": "Varanasi",
+    "cluster": "Water Filters",
+    "imgUrl": ""
+  },
+  {
+    "id": "prod072",
+    "name": "Smart Plug",
+    "facets": {
+      "category": "Smart Home",
+      "brand": "TP-Link Kasa",
+      "priceRange": "15-30"
+    },
+    "location": "Nashik",
+    "cluster": "Smart Home Devices",
+    "imgUrl": ""
+  },
+  {
+    "id": "prod073",
+    "name": "Portable Projector",
+    "facets": {
+      "category": "Electronics",
+      "brand": "Anker Nebula",
+      "priceRange": "200-500"
+    },
+    "location": "Srinagar",
+    "cluster": "Projectors",
+    "imgUrl": ""
+  },
+  {
+    "id": "prod074",
+    "name": "Blazer",
+    "facets": {
+      "category": "Apparel",
+      "brand": "Zara",
+      "priceRange": "70-150"
+    },
+    "location": "Mysuru",
+    "cluster": "Formal Wear",
+    "imgUrl": ""
+  },
+  {
+    "id": "prod075",
+    "name": "Non-stick Frying Pan",
+    "facets": {
+      "category": "Home & Kitchen",
+      "brand": "T-fal",
+      "priceRange": "25-50"
+    },
+    "location": "Thiruvananthapuram",
+    "cluster": "Cookware",
+    "imgUrl": ""
+  },
+  {
+    "id": "prod076",
+    "name": "Gaming Headset",
+    "facets": {
+      "category": "Electronics",
+      "brand": "HyperX",
+      "priceRange": "60-120"
+    },
+    "location": "Guwahati",
+    "cluster": "Audio Devices",
+    "imgUrl": ""
+  },
+  {
+    "id": "prod077",
+    "name": "Plant Pot",
+    "facets": {
+      "category": "Home Decor",
+      "brand": "Pottery Barn",
+      "priceRange": "15-40"
+    },
+    "location": "Bhubaneswar",
+    "cluster": "Planters",
+    "imgUrl": ""
+  },
+  {
+    "id": "prod078",
+    "name": "Desk Chair",
+    "facets": {
+      "category": "Furniture",
+      "brand": "Herman Miller",
+      "priceRange": "200-500"
+    },
+    "location": "Chandigarh",
+    "cluster": "Office Furniture",
+    "imgUrl": ""
+  },
+  {
+    "id": "prod079",
+    "name": "Winter Jacket",
+    "facets": {
+      "category": "Apparel",
+      "brand": "The North Face",
+      "priceRange": "150-300"
+    },
+    "location": "Noida",
+    "cluster": "Outerwear",
+    "imgUrl": ""
+  },
+  {
+    "id": "prod080",
+    "name": "Dressing Table",
+    "facets": {
+      "category": "Furniture",
+      "brand": "Nilkamal",
+      "priceRange": "100-250"
+    },
+    "location": "Gurugram",
+    "cluster": "Bedroom Furniture",
+    "imgUrl": ""
+  },
+  {
+    "id": "prod081",
+    "name": "Car Charger",
+    "facets": {
+      "category": "Automotive",
+      "brand": "Portronics",
+      "priceRange": "10-25"
+    },
+    "location": "Lucknow",
+    "cluster": "Car Accessories",
+    "imgUrl": ""
+  },
+  {
+    "id": "prod082",
+    "name": "Dumbbells",
+    "facets": {
+      "category": "Sports",
+      "brand": "Decathlon",
+      "priceRange": "30-100"
+    },
+    "location": "Ahmedabad",
+    "cluster": "Fitness Equipment",
+    "imgUrl": ""
+  },
+  {
+    "id": "prod083",
+    "name": "Juicer",
+    "facets": {
+      "category": "Home & Kitchen",
+      "brand": "Prestige",
+      "priceRange": "50-120"
+    },
+    "location": "Mumbai",
+    "cluster": "Kitchen Appliances",
+    "imgUrl": ""
+  },
+  {
+    "id": "prod084",
+    "name": "Smart Door Lock",
+    "facets": {
+      "category": "Smart Home",
+      "brand": "Yale",
+      "priceRange": "150-300"
+    },
+    "location": "Bengaluru",
+    "cluster": "Security Devices",
+    "imgUrl": ""
+  },
+  {
+    "id": "prod085",
+    "name": "Hiking Backpack",
+    "facets": {
+      "category": "Outdoor & Travel",
+      "brand": "Wildcraft",
+      "priceRange": "60-150"
+    },
+    "location": "Delhi",
+    "cluster": "Backpacks",
+    "imgUrl": ""
+  },
+  {
+    "id": "prod086",
+    "name": "Waffle Maker",
+    "facets": {
+      "category": "Home & Kitchen",
+      "brand": "Oster",
+      "priceRange": "30-70"
+    },
+    "location": "Hyderabad",
+    "cluster": "Kitchen Appliances",
+    "imgUrl": ""
+  },
+  {
+    "id": "prod087",
+    "name": "Blood Pressure Monitor",
+    "facets": {
+      "category": "Health & Fitness",
+      "brand": "Omron",
+      "priceRange": "40-90"
+    },
+    "location": "Chennai",
+    "cluster": "Health Devices",
+    "imgUrl": ""
+  },
+  {
+    "id": "prod088",
+    "name": "Luggage Set",
+    "facets": {
+      "category": "Bags & Luggage",
+      "brand": "American Tourister",
+      "priceRange": "150-300"
+    },
+    "location": "Pune",
+    "cluster": "Luggage",
+    "imgUrl": ""
+  },
+  {
+    "id": "prod089",
+    "name": "Soundbar",
+    "facets": {
+      "category": "Electronics",
+      "brand": "Sony",
+      "priceRange": "100-250"
+    },
+    "location": "Kolkata",
+    "cluster": "Audio Devices",
+    "imgUrl": ""
+  },
+  {
+    "id": "prod090",
+    "name": "Cereal Dispenser",
+    "facets": {
+      "category": "Home & Kitchen",
+      "brand": "Zevro",
+      "priceRange": "20-50"
+    },
+    "location": "Ahmedabad",
+    "cluster": "Kitchen Storage",
+    "imgUrl": ""
+  },
+  {
+    "id": "prod091",
+    "name": "Electric Scooter",
+    "facets": {
+      "category": "Sports",
+      "brand": "Xiaomi",
+      "priceRange": "300-600"
+    },
+    "location": "Lucknow",
+    "cluster": "Electric Vehicles",
+    "imgUrl": ""
+  },
+  {
+    "id": "prod092",
+    "name": "Car Seat Cover",
+    "facets": {
+      "category": "Automotive",
+      "brand": "Sparco",
+      "priceRange": "40-100"
+    },
+    "location": "Jaipur",
+    "cluster": "Car Interiors",
+    "imgUrl": ""
+  },
+  {
+    "id": "prod093",
+    "name": "Dehumidifier",
+    "facets": {
+      "category": "Home Appliances",
+      "brand": "Blueair",
+      "priceRange": "150-300"
+    },
+    "location": "Surat",
+    "cluster": "Air Treatment",
+    "imgUrl": ""
+  },
+  {
+    "id": "prod094",
+    "name": "Smart Lighting Kit",
+    "facets": {
+      "category": "Smart Home",
+      "brand": "Philips Hue",
+      "priceRange": "80-200"
+    },
+    "location": "Bhopal",
+    "cluster": "Smart Lighting",
+    "imgUrl": ""
+  },
+  {
+    "id": "prod095",
+    "name": "Diving Mask",
+    "facets": {
+      "category": "Sports",
+      "brand": "Speedo",
+      "priceRange": "30-70"
+    },
+    "location": "Indore",
+    "cluster": "Swimming Gear",
+    "imgUrl": ""
+  },
+  {
+    "id": "prod096",
+    "name": "Wine Rack",
+    "facets": {
+      "category": "Home & Kitchen",
+      "brand": "Spectrum",
+      "priceRange": "25-60"
+    },
+    "location": "Visakhapatnam",
+    "cluster": "Kitchen Storage",
+    "imgUrl": ""
+  },
+  {
+    "id": "prod097",
+    "name": "External SSD",
+    "facets": {
+      "category": "Electronics",
+      "brand": "Samsung",
+      "priceRange": "80-200"
+    },
+    "location": "Nagpur",
+    "cluster": "Storage Devices",
+    "imgUrl": ""
+  },
+  {
+    "id": "prod098",
+    "name": "Sofa Cushion",
+    "facets": {
+      "category": "Home Decor",
+      "brand": "Raymond Home",
+      "priceRange": "20-50"
+    },
+    "location": "Patna",
+    "cluster": "Soft Furnishings",
+    "imgUrl": ""
+  },
+  {
+    "id": "prod099",
+    "name": "Hair Dryer",
+    "facets": {
+      "category": "Personal Care",
+      "brand": "Dyson",
+      "priceRange": "150-300"
+    },
+    "location": "Ghaziabad",
+    "cluster": "Hair Care Appliances",
+    "imgUrl": ""
+  },
+  {
+    "id": "prod100",
+    "name": "Portable Power Station",
+    "facets": {
+      "category": "Electronics",
+      "brand": "Goal Zero",
+      "priceRange": "200-500"
+    },
+    "location": "Coimbatore",
+    "cluster": "Power Solutions",
+    "imgUrl": ""
+  }
+]
