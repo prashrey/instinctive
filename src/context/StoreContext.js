@@ -112,19 +112,20 @@ export const StoreProvider = ({ children }) => {
   }, []);
   const actions = useMemo(() => {
     return {
-      searchProducts: (query, filters = {}, sort = "relevant") => {
+      searchProducts: (query, filters = {}, sort = null) => {
         const params = { ...state.selectedFilters };
 
         if (query !== undefined && query !== null && query !== "") {
           params.search = query;
         }
 
-        if (sort !== state.sortBy) {
-          dispatch({ type: ACTIONS.SET_SORT, payload: sort });
+        const newSort = sort !== null ? sort : state.sortBy;
+        if (newSort !== state.sortBy) {
+          dispatch({ type: ACTIONS.SET_SORT, payload: newSort });
         }
 
-        if (state.sortBy !== "relevant") {
-          params.sort = state.sortBy;
+        if (newSort !== "relevant") {
+          params.sort = newSort;
         }
 
         Object.assign(params, filters);
@@ -137,8 +138,9 @@ export const StoreProvider = ({ children }) => {
       },
       updateFilters: filters => {
         const params = { ...filters };
-        if (state.sortBy !== "relevant") {
-          params.sort = state.sortBy;
+        const currentSort = state.sortBy;
+        if (currentSort !== "relevant") {
+          params.sort = currentSort;
         }
 
         dispatch({ type: ACTIONS.SET_LOADING, payload: true });
@@ -147,6 +149,9 @@ export const StoreProvider = ({ children }) => {
         return fetchFromAPI("/api/products", params)
           .then(data => {
             dispatch({ type: ACTIONS.SET_PRODUCTS, payload: data });
+            if (currentSort !== "relevant") {
+              dispatch({ type: ACTIONS.SET_SORT, payload: currentSort });
+            }
           })
           .catch(error => {
             dispatch({ type: ACTIONS.SET_ERROR, payload: "Failed to fetch products" });
@@ -157,13 +162,16 @@ export const StoreProvider = ({ children }) => {
       },
       updateSort: sortBy => {
         dispatch({ type: ACTIONS.SET_SORT, payload: sortBy });
+        dispatch({ type: ACTIONS.SET_LOADING, payload: true });
 
         const params = { ...state.selectedFilters };
         if (sortBy !== "relevant") {
           params.sort = sortBy;
         }
 
-        dispatch({ type: ACTIONS.SET_LOADING, payload: true });
+        if (state.selectedFilters.search) {
+          params.search = state.selectedFilters.search;
+        }
 
         return safeDispatch(
           () => fetchFromAPI("/api/products", params),

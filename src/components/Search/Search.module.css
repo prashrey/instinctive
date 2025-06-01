@@ -1,11 +1,14 @@
 .logo {
   font-family: "Kapakana", cursive;
   font-optical-sizing: auto;
-  font-size: 20px;
+  font-size: 40px;
   font-weight: 600;
   font-style: normal;
   padding: 0 20px;
   color: #0070f3;
+  border: 1px solid;
+  text-align: center;
+  border-radius: 20px;
 }
 
 .searchContainer {
