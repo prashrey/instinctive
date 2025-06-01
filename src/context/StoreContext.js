@@ -4,27 +4,22 @@ import { createContext, useContext, useReducer, useCallback, useMemo } from "rea
 
 const StoreContext = createContext();
 
-function fetchFromAPI(endpoint, params = {}) {
-  const queryString = new URLSearchParams(params).toString();
-  const url = queryString ? `${endpoint}?${queryString}` : endpoint;
+async function fetchFromAPI(endpoint, params = {}) {
+  try {
+    const queryString = new URLSearchParams(params).toString();
+    const url = `${endpoint}${queryString ? `?${queryString}` : ""}`;
+    const response = await fetch(url);
 
-  return new Promise((resolve, reject) => {
-    fetch(url)
-      .then(response => {
-        if (!response.ok) {
-          throw new Error(`API call failed: ${response.status} ${response.statusText}`);
-        }
-        return response.json();
-      })
-      .then(data => {
-        console.log("API Response:", data);
-        resolve(data);
-      })
-      .catch(error => {
-        console.error("API Error:", error);
-        reject(error);
-      });
-  });
+    if (!response.ok) {
+      throw new Error(`HTTP error! status: ${response.status}`);
+    }
+
+    const data = await response.json();
+    return data;
+  } catch (error) {
+    console.error("API call failed:", error);
+    throw error;
+  }
 }
 
 const initialState = {
@@ -99,19 +94,29 @@ const storeReducer = (state, action) => {
 export const StoreProvider = ({ children }) => {
   const [state, dispatch] = useReducer(storeReducer, initialState);
 
-  const safeDispatch = useCallback(async (apiCall, actionType, errorMessage) => {
-    dispatch({ type: ACTIONS.SET_LOADING, payload: true });
-    try {
-      const data = await apiCall();
-      dispatch({ type: actionType, payload: data });
-    } catch (error) {
-      dispatch({ type: ACTIONS.SET_ERROR, payload: errorMessage || error.message });
-    } finally {
-      dispatch({ type: ACTIONS.SET_LOADING, payload: false });
-    }
-  }, []);
-  const actions = useMemo(() => {
-    return {
+  const safeDispatch = useCallback(
+    async (apiCall, actionType, errorMessage) => {
+      if (state.loading) return;
+
+      dispatch({ type: ACTIONS.SET_LOADING, payload: true });
+      dispatch({ type: ACTIONS.SET_ERROR, payload: null });
+
+      try {
+        const data = await apiCall();
+        if (!data) throw new Error("No data received from API");
+        dispatch({ type: actionType, payload: data });
+      } catch (error) {
+        console.error(`Error in ${actionType}:`, error);
+        dispatch({ type: ACTIONS.SET_ERROR, payload: errorMessage || error.message });
+      } finally {
+        dispatch({ type: ACTIONS.SET_LOADING, payload: false });
+      }
+    },
+    [state.loading]
+  );
+
+  const actions = useMemo(
+    () => ({
       searchProducts: (query, filters = {}, sort = null) => {
         const params = { ...state.selectedFilters };
 
@@ -130,47 +135,40 @@ export const StoreProvider = ({ children }) => {
 
         Object.assign(params, filters);
 
-        safeDispatch(() => fetchFromAPI("/api/products", params), ACTIONS.SET_PRODUCTS, "Failed to fetch products");
+        return safeDispatch(
+          () => fetchFromAPI("/api/products", params),
+          ACTIONS.SET_PRODUCTS,
+          "Failed to fetch products"
+        );
       },
 
       loadFilters: () => {
-        safeDispatch(() => fetchFromAPI("/api/products/filters"), ACTIONS.SET_FILTERS, "Failed to load filters");
+        return safeDispatch(() => fetchFromAPI("/api/products/filters"), ACTIONS.SET_FILTERS, "Failed to load filters");
       },
+
       updateFilters: filters => {
         const params = { ...filters };
         const currentSort = state.sortBy;
+
         if (currentSort !== "relevant") {
           params.sort = currentSort;
         }
 
-        dispatch({ type: ACTIONS.SET_LOADING, payload: true });
         dispatch({ type: ACTIONS.SET_SELECTED_FILTERS, payload: filters });
 
-        return fetchFromAPI("/api/products", params)
-          .then(data => {
-            dispatch({ type: ACTIONS.SET_PRODUCTS, payload: data });
-            if (currentSort !== "relevant") {
-              dispatch({ type: ACTIONS.SET_SORT, payload: currentSort });
-            }
-          })
-          .catch(error => {
-            dispatch({ type: ACTIONS.SET_ERROR, payload: "Failed to fetch products" });
-          })
-          .finally(() => {
-            dispatch({ type: ACTIONS.SET_LOADING, payload: false });
-          });
+        return safeDispatch(
+          () => fetchFromAPI("/api/products", params),
+          ACTIONS.SET_PRODUCTS,
+          "Failed to fetch products"
+        );
       },
+
       updateSort: sortBy => {
         dispatch({ type: ACTIONS.SET_SORT, payload: sortBy });
-        dispatch({ type: ACTIONS.SET_LOADING, payload: true });
 
         const params = { ...state.selectedFilters };
         if (sortBy !== "relevant") {
           params.sort = sortBy;
-        }
-
-        if (state.selectedFilters.search) {
-          params.search = state.selectedFilters.search;
         }
 
         return safeDispatch(
@@ -181,8 +179,9 @@ export const StoreProvider = ({ children }) => {
       },
 
       clearError: () => dispatch({ type: ACTIONS.SET_ERROR, payload: null }),
-    };
-  }, [safeDispatch, state.selectedFilters, state.sortBy]);
+    }),
+    [safeDispatch, state.selectedFilters, state.sortBy]
+  );
 
   const value = useMemo(
     () => ({

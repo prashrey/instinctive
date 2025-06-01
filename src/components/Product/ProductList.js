@@ -30,8 +30,8 @@ const ProductList = () => {
         <div key={product.id} className={styles.product}>
           <div className={styles.imageContainer}>
             <Image
-              src={product.imgUrl ? product.imgUrl : "/product-placeholder.svg"}
-              alt={product.name}
+              src={product.imgUrl || "/product-placeholder.svg"}
+              alt={product.name || "Product"}
               fill
               sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
               className={styles.productImage}
@@ -41,11 +41,19 @@ const ProductList = () => {
             />
           </div>
           <div className={styles.productInfo}>
-            <h3>{product.name}</h3>
-            <p className={styles.price}>Price Range: ${product.facets.priceRange}</p>
-            <p className={styles.brand}>{product.facets.brand}</p>
-            <p className={styles.category}>{product.facets.category}</p>
-            <p className={styles.location}>{product.location}</p>
+            <h3>{product.name || "Untitled Product"}</h3>
+            {product.price && (
+              <p className={styles.price}>Price: ${product.price}</p>
+            )}
+            {product.brand && (
+              <p className={styles.brand}>{product.brand}</p>
+            )}
+            {product.category && (
+              <p className={styles.category}>{product.category}</p>
+            )}
+            {product.location && (
+              <p className={styles.location}>{product.location}</p>
+            )}
           </div>
         </div>
       ))}

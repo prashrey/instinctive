@@ -1,51 +1,46 @@
 import { NextResponse } from "next/server";
-import fs from "fs";
-import path from "path";
-import { fileURLToPath } from "url";
-
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
-
-const getProductsData = () => {
-  const filePath = path.join(process.cwd(), "items.json");
-  const fileData = fs.readFileSync(filePath, "utf8");
-  return JSON.parse(fileData);
-};
+import dbConnect from "@/lib/mongodb";
+import Product from "@/models/Product";
 
 export async function GET() {
   try {
-    const products = getProductsData();
+    await dbConnect();
 
-    const filters = {
-      categories: new Set(),
-      brands: new Set(),
-      priceRanges: new Set(),
-      locations: new Set(),
-      clusters: new Set(),
-    };
+    const [categories, brands, locations, clusters] = await Promise.all([
+      Product.distinct("category"),
+      Product.distinct("brand"),
+      Product.distinct("location"),
+      Product.distinct("cluster"),
+    ]);
 
-    products.forEach(item => {
-      filters.categories.add(item.facets.category);
-      filters.brands.add(item.facets.brand);
-      filters.priceRanges.add(item.facets.priceRange);
-      filters.locations.add(item.location);
-      filters.clusters.add(item.cluster);
-    });
+    const products = await Product.find({}, { price: 1 }).lean();
+    const prices = products.map(p => p.price);
+    const minPrice = Math.min(...prices);
+    const maxPrice = Math.max(...prices);
+
+    const priceStep = (maxPrice - minPrice) / 4;
+    const priceRanges = [];
+    for (let i = 0; i < 4; i++) {
+      const start = Math.round(minPrice + priceStep * i);
+      const end = Math.round(minPrice + priceStep * (i + 1));
+      priceRanges.push(`${start}-${end}`);
+    }
 
     const response = {
-      categories: Array.from(filters.categories).sort(),
-      brands: Array.from(filters.brands).sort(),
-      priceRanges: Array.from(filters.priceRanges).sort((a, b) => {
+      categories: categories.sort(),
+      brands: brands.sort(),
+      locations: locations.sort(),
+      clusters: clusters.sort(),
+      priceRanges: priceRanges.sort((a, b) => {
         const [aMin] = a.split("-").map(Number);
         const [bMin] = b.split("-").map(Number);
         return aMin - bMin;
       }),
-      locations: Array.from(filters.locations).sort(),
-      clusters: Array.from(filters.clusters).sort(),
     };
 
     return NextResponse.json(response);
   } catch (error) {
+    console.error("Database Error:", error);
     return NextResponse.json({ error: "Failed to fetch filters" }, { status: 500 });
   }
 }

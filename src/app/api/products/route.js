@@ -1,130 +1,58 @@
 import { NextResponse } from "next/server";
-import fs from "fs";
-import path from "path";
-import { fileURLToPath } from "url";
-
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
-
-const getProductsData = () => {
-  const filePath = path.join(process.cwd(), "items.json");
-  const fileData = fs.readFileSync(filePath, "utf8");
-  return JSON.parse(fileData);
-};
-
-const applyFilters = (products, filters) => {
-  return products.filter(product => {
-    return Object.entries(filters).every(([key, values]) => {
-      if (!values || values.length === 0) return true;
-
-      const productValue =
-        key === "category" || key === "brand" || key === "priceRange" ? product.facets[key] : product[key];
-
-      return values.includes(productValue);
-    });
-  });
-};
-
-const applySearch = (products, searchTerm) => {
-  if (!searchTerm) return products;
-
-  const search = searchTerm.toLowerCase();
-  const matches = products.filter(
-    p =>
-      p.name.toLowerCase().includes(search) ||
-      p.facets.brand.toLowerCase().includes(search) ||
-      p.facets.category.toLowerCase().includes(search) ||
-      p.cluster.toLowerCase().includes(search)
-  );
-
-  if (matches.length === 0) {
-    const searchWords = search.split(" ");
-    return products.filter(p => {
-      return searchWords.some(
-        word =>
-          p.name.toLowerCase().includes(word) ||
-          p.facets.brand.toLowerCase().includes(word) ||
-          p.facets.category.toLowerCase().includes(word) ||
-          p.cluster.toLowerCase().includes(word)
-      );
-    });
-  }
-
-  return matches;
-};
-
-const applySorting = (products, sort, searchTerm) => {
-  switch (sort) {
-    case "price_high_low":
-      return products.sort((a, b) => {
-        const [aMin] = a.facets.priceRange.split("-").map(Number);
-        const [bMin] = b.facets.priceRange.split("-").map(Number);
-        return bMin - aMin;
-      });
-
-    case "price_low_high":
-      return products.sort((a, b) => {
-        const [aMin] = a.facets.priceRange.split("-").map(Number);
-        const [bMin] = b.facets.priceRange.split("-").map(Number);
-        return aMin - bMin;
-      });
-
-    case "relevance":
-      if (searchTerm) {
-        const search = searchTerm.toLowerCase();
-        return products.sort((a, b) => {
-          const aScore =
-            (a.name.toLowerCase().includes(search) ? 3 : 0) +
-            (a.facets.brand.toLowerCase().includes(search) ? 2 : 0) +
-            (a.facets.category.toLowerCase().includes(search) ? 2 : 0) +
-            (a.cluster.toLowerCase().includes(search) ? 1 : 0);
-          const bScore =
-            (b.name.toLowerCase().includes(search) ? 3 : 0) +
-            (b.facets.brand.toLowerCase().includes(search) ? 2 : 0) +
-            (b.facets.category.toLowerCase().includes(search) ? 2 : 0) +
-            (b.cluster.toLowerCase().includes(search) ? 1 : 0);
-          return bScore - aScore;
-        });
-      }
-      return products;
-
-    default:
-      return products;
-  }
-};
+import dbConnect from "@/lib/mongodb";
+import Product from "@/models/Product";
 
 export async function GET(request) {
   try {
+    await dbConnect();
     const { searchParams } = new URL(request.url);
+    const query = {};
+    const sortOption = {};
+
     const searchTerm = searchParams.get("search");
-    const sort = searchParams.get("sort") || "relevance";
+    if (searchTerm) {
+      query.$text = { $search: searchTerm };
+    }
 
     const filters = {};
     for (const [key, value] of searchParams.entries()) {
       if (!["search", "sort"].includes(key)) {
-        filters[key] = value.split(",");
+        const values = value.split(",");
+        if (values.length > 0) {
+          filters[key] = { $in: values };
+        }
       }
     }
 
-    let products = getProductsData();
+    Object.assign(query, filters);
 
-    if (Object.keys(filters).length > 0) {
-      products = applyFilters(products, filters);
+    const sort = searchParams.get("sort") || "relevant";
+    switch (sort) {
+      case "price_low_high":
+        sortOption.price = 1;
+        break;
+      case "price_high_low":
+        sortOption.price = -1;
+        break;
+      case "relevant":
+      default:
+        if (searchTerm) {
+          sortOption.score = { $meta: "textScore" };
+        }
+        break;
     }
 
-    if (searchTerm) {
-      products = applySearch(products, searchTerm);
-    }
-
-    products = applySorting(products, sort, searchTerm);
+    const products = await Product.find(query, searchTerm ? { score: { $meta: "textScore" } } : {})
+      .sort(sortOption)
+      .lean();
 
     return NextResponse.json({
       products,
       total: products.length,
-      filters: filters,
+      filters: Object.fromEntries(Object.entries(filters).map(([key, value]) => [key, value.$in])),
     });
   } catch (error) {
-    console.error("Error processing products request:", error);
-    return NextResponse.json({ error: "Failed to process request" }, { status: 500 });
+    console.error("Database Error:", error);
+    return NextResponse.json({ error: "Failed to fetch products" }, { status: 500 });
   }
 }
